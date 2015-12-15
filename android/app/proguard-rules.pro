@@ -16,7 +16,15 @@
 #   public *;
 #}
 
--keep class org.apache.http.** { *; }
--dontwarn org.apache.http.**
--keep class android.net.http.** { *; }
--dontwarn android.net.http.**
+-dontnote org.apache.http.**
+-dontnote android.net.http.**
+-dontnote com.google.vending.licensing.ILicensingService
+-dontnote com.android.vending.licensing.ILicensingService
+-dontnote android.support.v4.app.NotificationCompatJellybean
+-dontnote android.support.v4.text.ICUCompatApi23
+-dontnote android.support.v4.text.ICUCompatIcs
+-dontnote android.support.v7.widget.DrawableUtils
+
+-keep class android.support.design.** {*;}
+-keep class android.support.v4.** {*;}
+-keep class android.support.v7.** {*;}
