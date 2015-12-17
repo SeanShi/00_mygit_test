@@ -28,3 +28,15 @@
 -keep class android.support.design.** {*;}
 -keep class android.support.v4.** {*;}
 -keep class android.support.v7.** {*;}
+
+#------------- log4j ------------------
+-dontnote org.apache.log4j.**
+-dontwarn org.apache.log4j.**
+
+#------------- spongcastle ------------------
+-dontnote org.spongycastle.**
+-dontwarn org.spongycastle.x509.util.LDAPStoreHelper
+-dontwarn org.spongycastle.pqc.jcajce.provider.**
+-dontwarn org.spongycastle.jce.spec.**
+-dontwarn org.spongycastle.jce.provider.**
+-dontwarn org.spongycastle.jce.ECKeyUtil

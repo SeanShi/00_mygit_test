@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        Log4jTest.test();
     }
 
     @Override

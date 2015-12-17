@@ -11,9 +11,20 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'license.txt'
+        exclude 'LICENSE'
+        exclude 'NOTICE'
+        exclude 'META-INF/maven/com.squareup/otto/pom.xml'
+        exclude 'META-INF/maven/com.squareup/otto/pom.properties'
+    }
+
     buildTypes {
         debug {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -24,6 +35,14 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
+
+
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    compile('org.apache.httpcomponents:httpmime:4.3') {
+        exclude module: "httpclient"
+    }
+
 
     compile files('src/main/libs/core-1.51.0.0.jar')
     compile files('src/main/libs/prov-1.51.0.0.jar')
