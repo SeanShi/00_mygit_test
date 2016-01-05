@@ -34,11 +34,15 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.ElementList;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -46,9 +50,12 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
+
+import gui.ava.html.image.generator.HtmlImageGenerator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         imageView = (ImageView)findViewById(R.id.imageView2);
         webview = (WebView)findViewById(R.id.webView1);
 
-//        new SendEmailTask().execute();
-        test();
+        new SendEmailTask().execute();
+//        test();
     }
 
     @Override
@@ -257,7 +264,15 @@ public class MainActivity extends AppCompatActivity {
                 "</html>";
 //        convertHtmlToPdf(html);
         convertHtmlToBmp(html);
+//        convertHtmlToBmp2(html);
 
+    }
+
+    private void convertHtmlToBmp2(String html)
+    {
+        HtmlImageGenerator imageGenerator = new HtmlImageGenerator();
+        imageGenerator.loadHtml("html");
+        imageGenerator.saveAsImage(Environment.getExternalStorageDirectory() + "/receipt1.png");
     }
 
     private void convertHtmlToBmp(String html)
@@ -341,9 +356,6 @@ public class MainActivity extends AppCompatActivity {
         canvas.drawPicture(pictureDrawable.getPicture());
         return bitmap;
     }
-
-
-
 
     class Background extends AsyncTask<Void, Void, Bitmap>
     {
@@ -462,21 +474,44 @@ public class MainActivity extends AppCompatActivity {
             MimeMessage message = new MimeMessage(session);
 
             message.setFrom(new InternetAddress(from));
-
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
             // Set Subject: header field
             message.setSubject(subject);
 
+            MimeMultipart multipart = new MimeMultipart("related");
+            BodyPart textBodyPart = new MimeBodyPart();
+            String htmlText = "<html><body><H1>Hello</H1><img src=\"cid:image\"></body></html>";
+            textBodyPart.setContent(htmlText, "text/html");
+            multipart.addBodyPart(textBodyPart);
+
+            String filename = Environment.getExternalStorageDirectory() + "/globex.jpg";
+            File file = new File(filename);
+            if(file.exists()){
+                System.out.println("...........................................file is already there");
+            }else{
+                System.out.println("...........................................Not find file ");
+            }
+
+            MimeBodyPart imageBodyPart = new MimeBodyPart();
+            DataSource fds = new FileDataSource(filename);
+
+            imageBodyPart.setDataHandler(new DataHandler(fds));
+            imageBodyPart.setHeader("Content-ID", "<image>");
+            imageBodyPart.setHeader("Content-Type", "image/jpg");
+            imageBodyPart.setDisposition(MimeBodyPart.INLINE);
+
+            multipart.addBodyPart(imageBodyPart);
+
             // Send the actual HTML message, as big as you like
-            message.setContent(content, "text/html");
+            //message.setContent(content, "text/html");
+            message.setContent(multipart);
 
             Transport.send(message);
             System.out.println("Sent message successfully...."+to);
         } catch (Exception ex) {
             System.out.println("Failed to send message to "+to + ".  ["+ex.getMessage()+"]");
             ex.printStackTrace();
-            throw new Exception(ex.getMessage());
         } finally {
             try {
                 if (t != null) {

@@ -90,6 +90,14 @@
 -keep class org.apache.harmony.awt.** {*;}
 -keep class org.apache.harmony.misc.** {*;}
 
+#------------- html2image ---------------
+-dontwarn gui.ava.html.image.util.**
+-dontwarn gui.ava.html.image.generator.HtmlImageGenerator
+-dontwarn gui.ava.html.link.LinkHarvester
+-dontwarn gui.ava.html.link.LinkInfo
+-keep class java.awt.Dimension {*;}
+-keep class java.awt.** {*;}
+
 #------------- other ------------------
 -dontwarn dagger.internal.codegen.**
 -dontwarn com.google.common.**
