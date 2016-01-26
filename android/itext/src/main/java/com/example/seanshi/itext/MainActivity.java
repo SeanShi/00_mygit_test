@@ -34,9 +34,14 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.ElementList;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -88,6 +93,17 @@ public class MainActivity extends AppCompatActivity {
                 test();
             }
         });
+
+        String date = "";
+
+//        Locale locale = new Locale("fr", "FR");
+        Locale locale = Locale.getDefault();
+        Date currentDate = new Date();
+        date = new SimpleDateFormat("MMMM dd, yyyy", locale).format(currentDate) + " at " + new SimpleDateFormat("hh:mm a", locale).format(currentDate).toLowerCase(locale);
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy hh:mm a");
+//        date = dateFormat.format(new java.util.Date());
+        System.out.println(".......................................["+date+"]");
+        button.setText(date);
 
         iconView = (ImageView)findViewById(R.id.imageView1);
         imageView = (ImageView)findViewById(R.id.imageView2);
@@ -448,9 +464,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendEmail(String to, String subject, String content) throws Exception
     {
+/*
         final String from = "possum.noreply@gmail.com";
         final String password = "possum123";
         String host = "smtp.gmail.com";
+*/
+
+        final String from = "noreply-pos@iqmetrix.com";
+        final String password = "Gen2Toast4!";
+        String host = "smtp.office365.com";
 
         Properties properties = System.getProperties();
         properties.setProperty("mail.smtp.host", host);
@@ -469,6 +491,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         Transport t = null;
         try {
             MimeMessage message = new MimeMessage(session);
@@ -481,11 +504,25 @@ public class MainActivity extends AppCompatActivity {
 
             MimeMultipart multipart = new MimeMultipart("related");
             BodyPart textBodyPart = new MimeBodyPart();
-            String htmlText = "<html><body><H1>Hello</H1><img src=\"cid:image\"></body></html>";
+
+//            String htmlText = readFile(getExternalFilesDir(null) +"/assets/template.html");
+
+            String htmlText = "<html><head>\n" +
+                    "\n" +
+                    "\t<style>\n" +
+                    "\t\timage { width: 600; max-width: 600;}\n" +
+                    "\t</style>\n" +
+                    "\n" +
+                    "<!--[if gte mso 9]>\n" +
+                    "<style type=\"text/css\">\n" +
+                    "img { width: 600; } \n" +
+                    "</style>\n" +
+                    "<![endif]--></head>\n<body><H1>Hello, this is  a test.</H1><img src=\"cid:image\" width=\"600\"></body></html>";
+
             textBodyPart.setContent(htmlText, "text/html");
             multipart.addBodyPart(textBodyPart);
 
-            String filename = Environment.getExternalStorageDirectory() + "/globex.jpg";
+            String filename = Environment.getExternalStorageDirectory() + "/icon.png";
             File file = new File(filename);
             if(file.exists()){
                 System.out.println("...........................................file is already there");
@@ -494,9 +531,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             MimeBodyPart imageBodyPart = new MimeBodyPart();
-            DataSource fds = new FileDataSource(filename);
+//            DataSource fds = new FileDataSource(filename);
 
-            imageBodyPart.setDataHandler(new DataHandler(fds));
+//            imageBodyPart.setDataHandler(new DataHandler(fds));
+            imageBodyPart.attachFile(filename);
             imageBodyPart.setHeader("Content-ID", "<image>");
             imageBodyPart.setHeader("Content-Type", "image/jpg");
             imageBodyPart.setDisposition(MimeBodyPart.INLINE);
@@ -567,4 +605,28 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("check "+ "sent");
     }
 
+    private String readFile(String filename)
+    {
+        File file = new File(filename);
+
+        //Read text from file
+        StringBuilder text = new StringBuilder();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                text.append(line);
+                text.append('\n');
+            }
+            br.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(text.toString());
+
+        return text.toString();
+    }
 }

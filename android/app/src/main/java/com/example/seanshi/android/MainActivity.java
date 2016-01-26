@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log4jTest.test();
+        // Log4jTest.test();
+        TestVolley.test(this);
     }
 
     @Override
