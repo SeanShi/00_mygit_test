@@ -7,14 +7,8 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Environment;
 
-import com.android.volley.Cache;
-import com.android.volley.Network;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.BasicNetwork;
-import com.android.volley.toolbox.DiskBasedCache;
-import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.ImageRequest;
 
 import java.io.File;
@@ -61,7 +55,7 @@ public class TestVolley {
                     }
             });
 
-            MySingleton.getInstance(_activity).addToRequestQueue(ir);
+            VolleySingleton.getInstance(_activity).addToRequestQueue(ir);
             return new Long(100);
         }
 

@@ -12,13 +12,13 @@ import com.android.volley.toolbox.Volley;
 /**
  * Created by Sean.Shi on 1/26/2016.
  */
-public class MySingleton {
-    private static MySingleton mInstance;
+public class VolleySingleton {
+    private static VolleySingleton mInstance;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
     private static Context mCtx;
 
-    private MySingleton(Context context) {
+    private VolleySingleton(Context context) {
         mCtx = context;
         mRequestQueue = getRequestQueue();
 
@@ -39,9 +39,9 @@ public class MySingleton {
                 });
     }
 
-    public static synchronized MySingleton getInstance(Context context) {
+    public static synchronized VolleySingleton getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new MySingleton(context);
+            mInstance = new VolleySingleton(context);
         }
         return mInstance;
     }
