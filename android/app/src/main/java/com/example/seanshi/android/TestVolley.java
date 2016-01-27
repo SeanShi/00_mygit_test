@@ -77,15 +77,20 @@ public class TestVolley {
 
         FileOutputStream fos = null;
         try {
-
             fos = new FileOutputStream(mypath);
 
             // Use the compress method on the BitMap object to write image to
             // the OutputStream
             bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
-            fos.close();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if(fos!=null) {
+                try {
+                    fos.close();
+                }catch(Exception ex)
+                {}
+            }
         }
 
         System.out.println("file is saved ["+mypath.getPath()+"]");
