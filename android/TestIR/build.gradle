@@ -2,57 +2,16 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
-
-    signingConfigs {
-        release {
-            storeFile file('keystores/iQmetrixPOS.jks')
-            storePassword "Abcd1234"
-            keyAlias "iQmetrixPOSKey"
-            keyPassword "Abcd1234"
-        }
-
-        demo {
-            storeFile file('keystores/iQmetrixPOS.jks')
-            storePassword "Abcd1234"
-            keyAlias "iQmetrixPOSKey"
-            keyPassword "Abcd1234"
-        }
-    }
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 23
     }
-
     buildTypes {
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    flavorDimensions  "version", "abi"
-    productFlavors {
-        full {
-            dimension "version"
-            applicationId "com.iqmetrix.pos.full"
-        }
-
-        armeabi_v7a {
-            dimension "abi"
-        }
-
-        x86 {
-            dimension "abi"
-        }
-    }
-
-    applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            output.outputFile = new File(
-                    output.outputFile.parent,
-                    output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
         }
     }
 }
