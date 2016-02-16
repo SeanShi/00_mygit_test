@@ -1,26 +1,258 @@
+import com.android.builder.core.DefaultManifestParser
+
+buildscript {
+    repositories {
+        maven { url "http://dl.bintray.com/populov/maven" }
+    }
+
+    dependencies {
+    }
+}
+
+def computeVersionName()
+{
+    def manifestParser = new DefaultManifestParser()
+    def String versionName = manifestParser.getVersionName((File) android.sourceSets.main.manifest.srcFile)
+
+    def buildCounter = System.getenv('build.counter')
+    if(buildCounter==null){
+        buildCounter = "X"
+    }
+
+    // The android.defaultConfig.versionName overrides the one in the manifest. It may be better
+    // if we use android.defaultConfig.versionName other than the versionName from manifest
+    return versionName + buildCounter
+}
+
 apply plugin: 'com.android.application'
+
+repositories {
+    maven { url "http://dl.bintray.com/populov/maven" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '23.0.2'
+
+    dexOptions {
+        jumboMode = true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
+    // resolve "Duplicate files copied in APK META-INF/NOTICE" error
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'license.txt'
+        exclude 'LICENSE'
+        exclude 'NOTICE'
+        exclude 'META-INF/maven/com.squareup/otto/pom.xml'
+        exclude 'META-INF/maven/com.squareup/otto/pom.properties'
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('keystores/iQmetrixPOS.jks')
+            storePassword "Abcd1234"
+            keyAlias "iQmetrixPOSKey"
+            keyPassword "Abcd1234"
+        }
+
+        demo {
+            storeFile file('keystores/iQmetrixPOS.jks')
+            storePassword "Abcd1234"
+            keyAlias "iQmetrixPOSKey"
+            keyPassword "Abcd1234"
+        }
+    }
 
     defaultConfig {
-        applicationId "com.example.seanshi.testir"
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionName computeVersionName()
     }
+
     buildTypes {
+/*
         release {
+            //Endpoints
+            buildConfigField "String", "Client_Secret", "\"Due24Mx8LPoCPBtvxOk7gaCH\""
+            buildConfigField "String", "ProductLibraryEndpoint", "\"https://productlibraryint.iqmetrix.net/v1\""
+            buildConfigField "String", "RetailerCatalogEndpoint", "\"https://catalogsint.iqmetrix.net/v1\""
+            buildConfigField "String", "CustomersEndpoint", "\"https://crmint.iqmetrix.net/v1/\""
+            buildConfigField "String", "ReferenceEndpoint", "\"https://referenceint.iqmetrix.net/v1/\""
+            buildConfigField "String", "AccountsEndpoint", "\"https://accountsint.iqmetrix.net/v1/\""
+            buildConfigField "String", "UserManagerEndpoint", "\"https://usermanagerint.iqmetrix.net/v1/\""
+            buildConfigField "String", "EntityManagerEndpoint", "\"https://entitymanagerint.iqmetrix.net/v1/\""
+            buildConfigField "String", "PricingEndpoint", "\"https://pricingint.iqmetrix.net/v1\""
+            buildConfigField "String", "AssetManagerEndpoint", "\"https://amsint.iqmetrix.net/\""
+            buildConfigField "String", "AvailabilityEndpoint", "\"https://availabilityint.iqmetrix.net/v1\""
+            buildConfigField "String", "OrderEndpoint", "\"https://orderint.iqmetrix.net/v1\""
+            buildConfigField "String", "CashManagementEndpoint", "\"https://cashmanagement-int-westus.azurewebsites.net/v1/\""
+            buildConfigField "String", "CashManagementEndpoint", "\"https://cashmanagementint.iqmetrix.net/v1/ \""
+            buildConfigField "String", "DeviceEndpoint", "\"https://posdevicemanagerint.iqmetrix.net/\""
+            buildConfigField "String", "ShippingAggregatorEndpoint", "\"https://shippingaggregatorint.iqmetrix.net/\""
+            buildConfigField "String", "PaymentMethodEndpoint", "\"https://paymentmethodsint.iqmetrix.net/v1\""
+            buildConfigField "String", "iQPayZMQEndpoint", "\"tcp://IQ-RGDEVAPP001:4400\""
+
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+*/
+
+        /*
+        rc {
+            buildConfigField "String", "Client_Secret", "\"sXggJCBByd5I1NEK1kfZ4DJ2\""
+        }
+*/
+
+        debug {
+            buildConfigField "String", "Client_Secret", "\"FXSDWCy3qYXUgXnpP9uRAhG4\""
+            buildConfigField "String", "ProductLibraryEndpoint", "\"https://productlibraryint.iqmetrix.net/v1\""
+            buildConfigField "String", "RetailerCatalogEndpoint", "\"https://catalogsint.iqmetrix.net/v1\""
+            buildConfigField "String", "CustomersEndpoint", "\"https://crmint.iqmetrix.net/v1/\""
+            buildConfigField "String", "ReferenceEndpoint", "\"https://referenceint.iqmetrix.net/v1/\""
+            buildConfigField "String", "AccountsEndpoint", "\"https://accountsint.iqmetrix.net/v1/\""
+            buildConfigField "String", "UserManagerEndpoint", "\"https://usermanagerint.iqmetrix.net/v1/\""
+            buildConfigField "String", "EntityManagerEndpoint", "\"https://entitymanagerint.iqmetrix.net/v1/\""
+            buildConfigField "String", "PricingEndpoint", "\"https://pricingint.iqmetrix.net/v1\""
+            buildConfigField "String", "AssetManagerEndpoint", "\"https://amsint.iqmetrix.net/\""
+            buildConfigField "String", "AvailabilityEndpoint", "\"https://availabilityint.iqmetrix.net/v1\""
+            buildConfigField "String", "OrderEndpoint", "\"https://orderint.iqmetrix.net/v1\""
+            buildConfigField "String", "CashManagementEndpoint", "\"https://cashmanagementint.iqmetrix.net/v1/\""
+            buildConfigField "String", "DeviceEndpoint", "\"https://posdevicemanagerint.iqmetrix.net/\""
+            buildConfigField "String", "ShippingAggregatorEndpoint", "\"https://shippingaggregatorint.iqmetrix.net/\""
+            buildConfigField "String", "PaymentMethodEndpoint", "\"https://paymentmethodsint.iqmetrix.net/v1\""
+            buildConfigField "String", "TaxServiceEndpoint", "\"https://taxesint.iqmetrix.net/v1/\""
+            buildConfigField "String", "iQPayZMQEndpoint", "\"tcp://IQ-RGDEVAPP001:4400\""
+//            buildConfigField "String", "iQPayZMQEndpoint", "\"tcp://darryls-w541-w8:4400\""
+            buildConfigField "String", "PPAPIEndpoint", "\"https://paymenttest.iqmetrix.net/\""
+//            versionNameSuffix "-DEBUG"
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        demo {
+            buildConfigField "String", "Client_Secret", "\"wt9vYl0ebaYZzxTkXnMtshYL\""
+            buildConfigField "String", "ProductLibraryEndpoint", "\"https://productlibrarydemo.iqmetrix.net/v1\""
+            buildConfigField "String", "RetailerCatalogEndpoint", "\"https://catalogsdemo.iqmetrix.net/v1\""
+            buildConfigField "String", "CustomersEndpoint", "\"https://crmdemo.iqmetrix.net/v1/\""
+            buildConfigField "String", "ReferenceEndpoint", "\"https://referencedemo.iqmetrix.net/v1/\""
+            buildConfigField "String", "AccountsEndpoint", "\"https://accountsdemo.iqmetrix.net/v1/\""
+            buildConfigField "String", "UserManagerEndpoint", "\"https://usermanagerdemo.iqmetrix.net/v1/\""
+            buildConfigField "String", "EntityManagerEndpoint", "\"https://entitymanagerdemo.iqmetrix.net/v1/\""
+            buildConfigField "String", "PricingEndpoint", "\"https://pricingdemo.iqmetrix.net/v1\""
+            buildConfigField "String", "AssetManagerEndpoint", "\"https://amsdemo.iqmetrix.net/\""
+            buildConfigField "String", "AvailabilityEndpoint", "\"https://availabilitydemo.iqmetrix.net/v1\""
+            buildConfigField "String", "OrderEndpoint", "\"https://orderdemo.iqmetrix.net/v1\""
+            buildConfigField "String", "CashManagementEndpoint", "\"https://cashmanagementdemo.iqmetrix.net/v1/\""
+            buildConfigField "String", "DeviceEndpoint", "\"https://posdevicemanagerdemo.iqmetrix.net/\""
+            buildConfigField "String", "ShippingAggregatorEndpoint", "\"https://shippingaggregatordemo.iqmetrix.net/\""
+            buildConfigField "String", "PaymentMethodEndpoint", "\"https://paymentmethodsdemo.iqmetrix.net/v1\""
+            buildConfigField "String", "TaxServiceEndpoint", "\"https://taxesdemo.iqmetrix.net/v1/\""
+            buildConfigField "String", "iQPayZMQEndpoint", "\"tcp://payment30.iqmetrix.net:4400\""
+            buildConfigField "String", "PPAPIEndpoint", "\"https://paymentdemo.iqmetrix.net/\""
+
+            minifyEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.demo
+        }
+    }
+
+    flavorDimensions  "version", "abi"
+    productFlavors {
+/*
+        possumTesting {
+            dimension "version"
+            applicationId "com.iqmetrix.pos.testing"
+        }
+*/
+
+        full {
+            dimension "version"
+            applicationId "com.iqmetrix.pos.full"
+        }
+
+/*
+        armeabi {
+            dimension "abi"
+            ndk {
+                abiFilter "armeabi"
+            }
+        }
+*/
+
+        armeabi_v7a {
+            dimension "abi"
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+
+/*
+        mips {
+            dimension "abi"
+            ndk {
+                abiFilter "mips"
+            }
+        }
+*/
+
+        x86 {
+            dimension "abi"
+            ndk {
+                abiFilter "x86"
+            }
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(
+                    output.outputFile.parent,
+                    output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.itextpdf:itextpdf:5.5.6'
+    compile 'com.itextpdf.tool:xmlworker:5.5.6'
+    compile 'com.squareup:otto:1.3.5'
+    compile 'com.squareup.dagger:dagger:1.2.2'
+    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
+    compile 'com.madgag.spongycastle:prov:1.51.0.0'
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
+    compile 'de.mindpipe.android:android-logging-log4j:1.0.3'
+    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    compile('org.apache.httpcomponents:httpmime:4.3') {
+        exclude module: "httpclient"
+    }
+    compile 'org.zeromq:jeromq:0.3.5'
+    androidTestCompile 'org.mockito:mockito-core:1.+'
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.+'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.+'
+    compile files('src/main/libs/StarIOPort3.1.jar')
+    compile files('src/main/libs/miniTemplator.jar')
+    compile files('src/main/libs/Android_Platform_Adapter.jar')
+    compile files('src/main/libs/RBA_SDK.jar')
+    compile files('src/main/libs/activation.jar')
+    compile files('src/main/libs/additionnal.jar')
+    compile files('src/main/libs/mail.jar')
+}
+
+task cleanIntermediates(type: Delete) {
+    delete 'build/intermediates'
+    delete fileTree(dir: "build/outputs/apk", include: "**/*-unaligned.apk")
+    delete fileTree(dir: "build/outputs/mapping", include: "**/dump.txt")
 }
