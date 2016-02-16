@@ -1,4 +1,4 @@
-package com.example.seanshi.instantrun;
+package com.example.seanshi.testir;
 
 import org.junit.Test;
 

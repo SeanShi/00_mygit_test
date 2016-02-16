@@ -1,4 +1,4 @@
-package com.example.seanshi.instantrun;
+package com.example.seanshi.testir;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
