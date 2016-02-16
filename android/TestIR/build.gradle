@@ -1,4 +1,4 @@
-import com.android.builder.core.DefaultManifestParser
+//import com.android.builder.core.DefaultManifestParser
 
 buildscript {
     repositories {
@@ -9,6 +9,7 @@ buildscript {
     }
 }
 
+/*
 def computeVersionName()
 {
     def manifestParser = new DefaultManifestParser()
@@ -23,6 +24,7 @@ def computeVersionName()
     // if we use android.defaultConfig.versionName other than the versionName from manifest
     return versionName + buildCounter
 }
+*/
 
 apply plugin: 'com.android.application'
 
@@ -74,7 +76,7 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 23
-        versionName computeVersionName()
+//        versionName computeVersionName()
     }
 
     buildTypes {
