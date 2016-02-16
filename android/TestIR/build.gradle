@@ -191,9 +191,10 @@ android {
 
         armeabi_v7a {
             dimension "abi"
-            ndk {
+/*            ndk {
                 abiFilter "armeabi-v7a"
             }
+*/
         }
 
 /*
@@ -207,9 +208,10 @@ android {
 
         x86 {
             dimension "abi"
-            ndk {
+/*            ndk {
                 abiFilter "x86"
             }
+*/
         }
     }
 
