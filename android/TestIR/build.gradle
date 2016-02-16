@@ -41,59 +41,9 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField "String", "Client_Secret", "\"FXSDWCy3qYXUgXnpP9uRAhG4\""
-            buildConfigField "String", "ProductLibraryEndpoint", "\"https://productlibraryint.iqmetrix.net/v1\""
-            buildConfigField "String", "RetailerCatalogEndpoint", "\"https://catalogsint.iqmetrix.net/v1\""
-            buildConfigField "String", "CustomersEndpoint", "\"https://crmint.iqmetrix.net/v1/\""
-            buildConfigField "String", "ReferenceEndpoint", "\"https://referenceint.iqmetrix.net/v1/\""
-            buildConfigField "String", "AccountsEndpoint", "\"https://accountsint.iqmetrix.net/v1/\""
-            buildConfigField "String", "UserManagerEndpoint", "\"https://usermanagerint.iqmetrix.net/v1/\""
-            buildConfigField "String", "EntityManagerEndpoint", "\"https://entitymanagerint.iqmetrix.net/v1/\""
-            buildConfigField "String", "PricingEndpoint", "\"https://pricingint.iqmetrix.net/v1\""
-            buildConfigField "String", "AssetManagerEndpoint", "\"https://amsint.iqmetrix.net/\""
-            buildConfigField "String", "AvailabilityEndpoint", "\"https://availabilityint.iqmetrix.net/v1\""
-            buildConfigField "String", "OrderEndpoint", "\"https://orderint.iqmetrix.net/v1\""
-            buildConfigField "String", "CashManagementEndpoint", "\"https://cashmanagementint.iqmetrix.net/v1/\""
-            buildConfigField "String", "DeviceEndpoint", "\"https://posdevicemanagerint.iqmetrix.net/\""
-            buildConfigField "String", "ShippingAggregatorEndpoint", "\"https://shippingaggregatorint.iqmetrix.net/\""
-            buildConfigField "String", "PaymentMethodEndpoint", "\"https://paymentmethodsint.iqmetrix.net/v1\""
-            buildConfigField "String", "TaxServiceEndpoint", "\"https://taxesint.iqmetrix.net/v1/\""
-            buildConfigField "String", "iQPayZMQEndpoint", "\"tcp://IQ-RGDEVAPP001:4400\""
-//            buildConfigField "String", "iQPayZMQEndpoint", "\"tcp://darryls-w541-w8:4400\""
-            buildConfigField "String", "PPAPIEndpoint", "\"https://paymenttest.iqmetrix.net/\""
-//            versionNameSuffix "-DEBUG"
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
-/*
-        demo {
-            buildConfigField "String", "Client_Secret", "\"wt9vYl0ebaYZzxTkXnMtshYL\""
-            buildConfigField "String", "ProductLibraryEndpoint", "\"https://productlibrarydemo.iqmetrix.net/v1\""
-            buildConfigField "String", "RetailerCatalogEndpoint", "\"https://catalogsdemo.iqmetrix.net/v1\""
-            buildConfigField "String", "CustomersEndpoint", "\"https://crmdemo.iqmetrix.net/v1/\""
-            buildConfigField "String", "ReferenceEndpoint", "\"https://referencedemo.iqmetrix.net/v1/\""
-            buildConfigField "String", "AccountsEndpoint", "\"https://accountsdemo.iqmetrix.net/v1/\""
-            buildConfigField "String", "UserManagerEndpoint", "\"https://usermanagerdemo.iqmetrix.net/v1/\""
-            buildConfigField "String", "EntityManagerEndpoint", "\"https://entitymanagerdemo.iqmetrix.net/v1/\""
-            buildConfigField "String", "PricingEndpoint", "\"https://pricingdemo.iqmetrix.net/v1\""
-            buildConfigField "String", "AssetManagerEndpoint", "\"https://amsdemo.iqmetrix.net/\""
-            buildConfigField "String", "AvailabilityEndpoint", "\"https://availabilitydemo.iqmetrix.net/v1\""
-            buildConfigField "String", "OrderEndpoint", "\"https://orderdemo.iqmetrix.net/v1\""
-            buildConfigField "String", "CashManagementEndpoint", "\"https://cashmanagementdemo.iqmetrix.net/v1/\""
-            buildConfigField "String", "DeviceEndpoint", "\"https://posdevicemanagerdemo.iqmetrix.net/\""
-            buildConfigField "String", "ShippingAggregatorEndpoint", "\"https://shippingaggregatordemo.iqmetrix.net/\""
-            buildConfigField "String", "PaymentMethodEndpoint", "\"https://paymentmethodsdemo.iqmetrix.net/v1\""
-            buildConfigField "String", "TaxServiceEndpoint", "\"https://taxesdemo.iqmetrix.net/v1/\""
-            buildConfigField "String", "iQPayZMQEndpoint", "\"tcp://payment30.iqmetrix.net:4400\""
-            buildConfigField "String", "PPAPIEndpoint", "\"https://paymentdemo.iqmetrix.net/\""
-
-            minifyEnabled true
-            debuggable true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.demo
-        }
-*/
     }
 
     flavorDimensions  "version", "abi"
