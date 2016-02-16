@@ -1,18 +1,4 @@
-buildscript {
-    repositories {
-        maven { url "http://dl.bintray.com/populov/maven" }
-    }
-
-    dependencies {
-    }
-}
-
 apply plugin: 'com.android.application'
-
-repositories {
-    maven { url "http://dl.bintray.com/populov/maven" }
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-}
 
 android {
     compileSdkVersion 23
