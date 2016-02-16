@@ -257,8 +257,8 @@ dependencies {
     compile files('src/main/libs/mail.jar')
 }
 
-task cleanIntermediates(type: Delete) {
-    delete 'build/intermediates'
-    delete fileTree(dir: "build/outputs/apk", include: "**/*-unaligned.apk")
-    delete fileTree(dir: "build/outputs/mapping", include: "**/dump.txt")
-}
+//task cleanIntermediates(type: Delete) {
+//    delete 'build/intermediates'
+//    delete fileTree(dir: "build/outputs/apk", include: "**/*-unaligned.apk")
+//    delete fileTree(dir: "build/outputs/mapping", include: "**/dump.txt")
+//}
