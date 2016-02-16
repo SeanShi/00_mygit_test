@@ -66,6 +66,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
+/*
         demo {
             buildConfigField "String", "Client_Secret", "\"wt9vYl0ebaYZzxTkXnMtshYL\""
             buildConfigField "String", "ProductLibraryEndpoint", "\"https://productlibrarydemo.iqmetrix.net/v1\""
@@ -92,6 +93,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.demo
         }
+*/
     }
 
     flavorDimensions  "version", "abi"
