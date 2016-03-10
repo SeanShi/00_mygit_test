@@ -1,1 +1,1 @@
-include ':app', ':itext', ':InstantRun', ':TestIR', ':testwebview'
+include ':app', ':itext', ':InstantRun', ':TestIR', ':testwebview', ':testBarCode', ':icontest'
