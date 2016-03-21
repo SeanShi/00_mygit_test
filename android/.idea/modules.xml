@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/icontest/icontest.iml" filepath="$PROJECT_DIR$/icontest/icontest.iml" />
       <module fileurl="file://$PROJECT_DIR$/itext/itext.iml" filepath="$PROJECT_DIR$/itext/itext.iml" />
       <module fileurl="file://$PROJECT_DIR$/testBarCode/testBarCode.iml" filepath="$PROJECT_DIR$/testBarCode/testBarCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testfragment/testfragment.iml" filepath="$PROJECT_DIR$/testfragment/testfragment.iml" />
       <module fileurl="file://$PROJECT_DIR$/testwebview/testwebview.iml" filepath="$PROJECT_DIR$/testwebview/testwebview.iml" />
     </modules>
   </component>

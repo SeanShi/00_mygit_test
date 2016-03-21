@@ -4,9 +4,11 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Picture;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
@@ -17,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,10 +56,105 @@ public class MainActivity extends AppCompatActivity {
 
         detail = (TextView) findViewById(R.id.detail);
 
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        System.out.println("densityDpi ["+metrics.densityDpi+"]   density ["+metrics.density+"]");
+        detail.setText("densityDpi ["+metrics.densityDpi+"]   density ["+metrics.density+"]");
+
         generateImage();
     }
 
     public void generateImage()
+    {
+        final AtomicBoolean ready = new AtomicBoolean(false);
+
+        final WebView mWebView = (WebView) findViewById(R.id.webview);
+        mWebView.loadUrl("http://www.google.com");
+
+//        final WebView mWebView = new WebView(this);
+        mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        mWebView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        mWebView.setInitialScale(150);
+//        mWebView.getSettings().setUseWideViewPort(true);
+//        mWebView.setMinimumWidth(300);
+        mWebView.getSettings().setLoadWithOverviewMode(true);
+
+        String html = "<html><body>hello world<p>bbb</p></body></html>";
+        html = HtmlString.html;
+        mWebView.loadDataWithBaseURL("", html, "text/html", "utf-8", "");
+
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                System.out.println("............ onPageFinished");
+                super.onPageFinished(view, url);
+                view.clearCache(true);
+                ready.set(true);
+            }
+        });
+
+        mWebView.setPictureListener(new WebView.PictureListener() {
+            @Override
+            public void onNewPicture(WebView view, Picture picture)
+            {
+                info("............ onNewPicture()  pic ["+picture+"]");
+/*
+                if (picture == null) {
+                    return;
+                }
+*/
+
+                if (!ready.get()) {
+                    return;
+                }
+                ready.set(false);
+
+                Picture pic = mWebView.capturePicture();
+
+                if(pic==null){
+                    System.out.println("............ pic is null");
+                    return;
+                }
+
+                System.out.println("onNewPicture............ width ["+pic.getWidth()+"]  hieght ["+pic.getHeight()+"]");
+                if(pic.getWidth()==0){
+                    System.out.println("width is 0");
+                    return;
+                }
+                final Bitmap bm = Bitmap.createBitmap(pic.getWidth(), pic.getHeight(), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bm);
+                canvas.drawPicture(pic);
+
+                image.setImageBitmap(bm);
+                saveBmp(bm);
+
+            }
+        });
+    }
+
+
+    private void saveBmp(Bitmap bm)
+    {
+        String root = Environment.getExternalStorageDirectory().toString();
+        File myDir = new File(root);
+        myDir.mkdirs();
+        String fname = "Image.jpg";
+        File file = new File(myDir, fname);
+        System.out.println("" + file);
+        if (file.exists())
+            file.delete();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            bm.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+            System.out.println(".....file saved");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void generateImage1()
     {
         final AtomicBoolean ready = new AtomicBoolean(false);
 
