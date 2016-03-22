@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.seanshi.testfragment.dummy.DummyContent;
 
-public class MainActivity extends AppCompatActivity implements PlusOneFragment.OnFragmentInteractionListener, ItemFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements PlusOneFragment.OnFragmentInteractionListener, ItemFragment.OnListFragmentInteractionListener, BlankFragment.OnFragmentInteractionListener {
 
     TextView _text;
 
@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity implements PlusOneFragment.O
     public void onListFragmentInteraction(DummyContent.DummyItem item)
     {
         _text.setText(item.toString());
+    }
+
+    public void onBlankFragmentInteraction(String str)
+    {
+        _text.setText(str);
     }
 
 }
