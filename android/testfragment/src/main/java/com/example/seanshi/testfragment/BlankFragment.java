@@ -1,13 +1,13 @@
 package com.example.seanshi.testfragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Chronometer;
 
 
 /**
@@ -62,6 +62,7 @@ public class BlankFragment extends Fragment {
     }
 
     static int _counter = 1;
+    Chronometer _chronometer;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,8 +75,18 @@ public class BlankFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mListener.onBlankFragmentInteraction("hello, world!...." + _counter++);
+                _chronometer.start();
             }
         });
+
+        Button stop = (Button) view.findViewById(R.id.stop);
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                _chronometer.stop();
+            }
+        });
+        _chronometer = (Chronometer)view.findViewById(R.id.chronometer);
         return view;
     }
 

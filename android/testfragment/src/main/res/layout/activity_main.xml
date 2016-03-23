@@ -27,7 +27,7 @@
         android:id="@+id/PlusOneFragment"
         android:layout_weight="2"
         android:layout_width="0dp"
-        android:layout_height="match_parent"></fragment>
+        android:layout_height="match_parent"/>
 
     <LinearLayout
         android:layout_width="1dp"
@@ -39,7 +39,7 @@
         android:id="@+id/BlankFragment"
         android:layout_weight="2"
         android:layout_width="0dp"
-        android:layout_height="match_parent"></fragment>
+        android:layout_height="match_parent"/>
 
     <LinearLayout
         android:layout_width="1dp"
@@ -51,5 +51,5 @@
         android:id="@+id/ItemFragment"
         android:layout_weight="2"
         android:layout_width="0dp"
-        android:layout_height="match_parent"></fragment>
+        android:layout_height="match_parent"/>
 </LinearLayout>
