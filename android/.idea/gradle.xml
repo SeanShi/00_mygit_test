@@ -14,7 +14,9 @@
             <option value="$PROJECT_DIR$/icontest" />
             <option value="$PROJECT_DIR$/itext" />
             <option value="$PROJECT_DIR$/testBarCode" />
+            <option value="$PROJECT_DIR$/testfabric" />
             <option value="$PROJECT_DIR$/testfragment" />
+            <option value="$PROJECT_DIR$/teststorage" />
             <option value="$PROJECT_DIR$/testwebview" />
           </set>
         </option>
@@ -27,7 +29,9 @@
             <option value="$PROJECT_DIR$/icontest" />
             <option value="$PROJECT_DIR$/itext" />
             <option value="$PROJECT_DIR$/testBarCode" />
+            <option value="$PROJECT_DIR$/testfabric" />
             <option value="$PROJECT_DIR$/testfragment" />
+            <option value="$PROJECT_DIR$/teststorage" />
             <option value="$PROJECT_DIR$/testwebview" />
           </set>
         </option>
