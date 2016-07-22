@@ -28,6 +28,9 @@ public class GIFView extends View {
     }
 
     private void initializeView() {
+        // disable hardware acceleration for this view
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+
         InputStream is = getContext().getResources().openRawResource(R.drawable.spinner);
         mMovie = Movie.decodeStream(is);
     }
