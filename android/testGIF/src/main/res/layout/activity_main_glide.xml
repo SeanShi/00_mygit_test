@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:components="http://schemas.android.com/apk/res/com.example.seanshi.testgif"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/activity_main"
     android:layout_width="match_parent" android:layout_height="match_parent"
@@ -14,16 +13,10 @@
         app:layout_constraintRight_toRightOf="@+id/activity_main"
         app:layout_constraintTop_toTopOf="@+id/activity_main" />
 
-<LinearLayout
-    android:layout_width="150dp"
-    android:layout_height="150dp"
-    android:gravity="center"
-    android:background="@color/colorPrimary">
-    <com.example.seanshi.testgif.GIFView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        components:src="@drawable/spinner" />
-</LinearLayout>
+        <ImageView
+            android:id="@+id/my_image_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
 
     <!-- congratulations -->
 
