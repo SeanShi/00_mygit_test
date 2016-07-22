@@ -17,6 +17,14 @@
         android:layout_height="wrap_content"
         android:text="Hello World! 111 " />
 
+    <Button
+        android:id="@+id/hide_show"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:text="hide_show"
+        android:onClick="ShowHide"
+        />
+
     <LinearLayout
         android:layout_width="1dp"
         android:layout_height="match_parent"
@@ -34,12 +42,23 @@
         android:layout_height="match_parent"
         android:background="@color/colorAccent"/>
 
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
+<!--
     <fragment
         android:name="com.example.seanshi.testfragment.BlankFragment"
         android:id="@+id/BlankFragment"
         android:layout_weight="2"
         android:layout_width="0dp"
         android:layout_height="match_parent"/>
+-->
 
     <LinearLayout
         android:layout_width="1dp"

@@ -14,27 +14,17 @@
             <option value="$PROJECT_DIR$/icontest" />
             <option value="$PROJECT_DIR$/itext" />
             <option value="$PROJECT_DIR$/testBarCode" />
+            <option value="$PROJECT_DIR$/testGIF" />
             <option value="$PROJECT_DIR$/testfabric" />
             <option value="$PROJECT_DIR$/testfragment" />
+            <option value="$PROJECT_DIR$/testlayout" />
+            <option value="$PROJECT_DIR$/testproguard" />
+            <option value="$PROJECT_DIR$/testrecyclerview" />
             <option value="$PROJECT_DIR$/teststorage" />
             <option value="$PROJECT_DIR$/testwebview" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/InstantRun" />
-            <option value="$PROJECT_DIR$/TestIR" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/icontest" />
-            <option value="$PROJECT_DIR$/itext" />
-            <option value="$PROJECT_DIR$/testBarCode" />
-            <option value="$PROJECT_DIR$/testfabric" />
-            <option value="$PROJECT_DIR$/testfragment" />
-            <option value="$PROJECT_DIR$/teststorage" />
-            <option value="$PROJECT_DIR$/testwebview" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

@@ -2,7 +2,7 @@ package com.example.seanshi.testfragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -91,6 +91,21 @@ public class ItemFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        System.out.println("----------------------- ItemFragment.onResume()");
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        System.out.println("----------------------- ItemFragment.onPause()");
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this

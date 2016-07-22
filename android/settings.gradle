@@ -1,1 +1,1 @@
-include ':app', ':itext', ':InstantRun', ':TestIR', ':testwebview', ':testBarCode', ':icontest', ':testfragment', ':teststorage', ':testfabric'
+include ':app', ':itext', ':InstantRun', ':TestIR', ':testwebview', ':testBarCode', ':icontest', ':testfragment', ':teststorage', ':testfabric', ':testlayout', ':testproguard', ':testrecyclerview', ':testGIF', ':testGif'

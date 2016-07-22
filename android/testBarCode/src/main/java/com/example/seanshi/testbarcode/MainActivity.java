@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 _imageView.setImageResource(R.drawable.background);
             }
         });
+
+        _barcode.setText("TODO81C33474D18BF99D");
     }
 
     private void generateImage()

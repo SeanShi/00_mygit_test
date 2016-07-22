@@ -2,7 +2,9 @@ package com.example.seanshi.testfragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +57,7 @@ public class BlankFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println(".................................................... blankFragment.onCreate()");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -68,12 +71,13 @@ public class BlankFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
-
+        System.out.println(".................................................... blankFragment.onCreateView()");
         Button button = (Button) view.findViewById(R.id.button);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println(".................................................... blankFragment.click()");
                 mListener.onBlankFragmentInteraction("hello, world!...." + _counter++);
                 _chronometer.start();
             }
@@ -98,8 +102,16 @@ public class BlankFragment extends Fragment {
     }
 
     @Override
+    public void onInflate (Context context, AttributeSet attrs, Bundle savedInstanceState)
+    {
+        super.onInflate(context, attrs, savedInstanceState);
+        System.out.println(".................................................... blankFragment.onInfalte()");
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        System.out.println(".................................................... blankFragment.onAttach()");
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
@@ -109,9 +121,80 @@ public class BlankFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated (View view, Bundle savedInstanceState)
+    {
+        super.onViewCreated(view, savedInstanceState);
+        System.out.println(".................................................... blankFragment.onViewCreated()");
+    }
+
+    @Override
+    public void onActivityCreated (Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+        System.out.println(".................................................... blankFragment.onActivityCreated()");
+    }
+
+    @Override
+    public void onViewStateRestored (Bundle savedInstanceState)
+    {
+        super.onViewStateRestored(savedInstanceState);
+        System.out.println(".................................................... blankFragment.onViewStateRestored()");
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        System.out.println(".................................................... blankFragment.onStart()");
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        System.out.println(".................................... BlankFragment.onResume()");
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        System.out.println(".................................... BlankFragment.onPause()");
+    }
+
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        System.out.println(".................................... BlankFragment.onStop()");
+    }
+
+    @Override
+    public void onDestroyView()
+    {
+        super.onStop();
+        System.out.println(".................................... BlankFragment.onDestroyView()");
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onStop();
+        System.out.println(".................................... BlankFragment.onDestroy()");
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden)
+    {
+        super.onHiddenChanged(hidden);
+        System.out.println(".................................... BlankFragment.onHiddenChanged()");
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        System.out.println(".................................... BlankFragment.onDetach()");
     }
 
     /**
