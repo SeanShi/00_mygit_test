@@ -17,13 +17,17 @@
 <LinearLayout
     android:layout_width="150dp"
     android:layout_height="150dp"
-    android:gravity="center"
-    android:background="@color/colorPrimary">
+    android:gravity="center">
     <com.example.seanshi.testgif.GIFView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         components:src="@drawable/spinner" />
 </LinearLayout>
+
+    <ImageView
+        android:id="@+id/my_image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
     <!-- congratulations -->
 
