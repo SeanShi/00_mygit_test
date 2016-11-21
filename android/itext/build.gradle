@@ -15,10 +15,6 @@ android {
         exclude 'META-INF/maven/com.squareup/otto/pom.properties'
     }
 
-    dexOptions {
-        incremental true
-    }
-
     defaultConfig {
         applicationId "com.example.seanshi.itext"
         minSdkVersion 17

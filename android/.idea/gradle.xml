@@ -3,8 +3,9 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:\Java\android-studio\gradle\gradle-2.14.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -14,9 +15,9 @@
             <option value="$PROJECT_DIR$/icontest" />
             <option value="$PROJECT_DIR$/itext" />
             <option value="$PROJECT_DIR$/testBarCode" />
-            <option value="$PROJECT_DIR$/testGIF" />
             <option value="$PROJECT_DIR$/testfabric" />
             <option value="$PROJECT_DIR$/testfragment" />
+            <option value="$PROJECT_DIR$/testgson" />
             <option value="$PROJECT_DIR$/testlayout" />
             <option value="$PROJECT_DIR$/testproguard" />
             <option value="$PROJECT_DIR$/testrecyclerview" />
