@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNewPicture(WebView view, Picture picture)
             {
-                info("............ onNewPicture()  pic ["+picture+"]");
+                info("............ onNewPicture() step 1   pic ["+picture+"]");
 /*
                 if (picture == null) {
                     return;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                System.out.println("onNewPicture............ width ["+pic.getWidth()+"]  hieght ["+pic.getHeight()+"]");
+                System.out.println("o.......nNewPicture step 2............ width ["+pic.getWidth()+"]  hieght ["+pic.getHeight()+"]");
                 if(pic.getWidth()==0){
                     System.out.println("width is 0");
                     return;
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
             {
 
 
-                info("............ onNewPicture()  pic ["+picture+"]");
+                info("............ onNewPicture() step1  pic ["+picture+"]");
                 if (picture == null) {
                     return;
                 }
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("............ pic is null");
                     return;
                 }
-                System.out.println("onNewPicture............ width ["+pic.getWidth()+"]  hieght ["+pic.getHeight()+"]");
+                System.out.println("......... onNewPicture step 2............ width ["+pic.getWidth()+"]  hieght ["+pic.getHeight()+"]");
                 final Bitmap bm = Bitmap.createBitmap(pic.getWidth(), pic.getHeight(), Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(bm);
                 canvas.drawPicture(pic);

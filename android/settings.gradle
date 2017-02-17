@@ -1,1 +1,1 @@
-include ':app', ':itext', ':InstantRun', ':TestIR', ':testwebview', ':testBarCode', ':icontest', ':testfragment', ':teststorage', ':testfabric', ':testlayout', ':testproguard', ':testrecyclerview', ':testgson'
+include ':app', ':itext', ':InstantRun', ':TestIR', ':testwebview', ':testBarCode', ':icontest', ':testfragment', ':teststorage', ':testfabric', ':testlayout', ':testproguard', ':testrecyclerview', ':testgson', ':testndk', ':testzebraprinter', ':testbitmp', ':testsystemclock', ':testsystemclock'
