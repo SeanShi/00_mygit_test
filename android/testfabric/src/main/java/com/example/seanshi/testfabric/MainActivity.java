@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.sql.Time;
 import java.util.Calendar;
 import java.util.Currency;
+import java.util.Date;
 
 import io.fabric.sdk.android.Fabric;
 import io.fabric.sdk.android.services.common.Crash;
@@ -131,10 +132,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void testException()
     {
+        /*
         try{
             throw new NullPointerException();
         }catch(Exception e){
             Crashlytics.logException(e);
         }
+        */
+        testException2();
+    }
+
+    private void testException2()
+    {
+        throw new RuntimeException("this is a runtime error " + new Date().toString());
     }
 }

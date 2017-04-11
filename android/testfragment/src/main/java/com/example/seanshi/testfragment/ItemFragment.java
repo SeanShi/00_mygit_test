@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.seanshi.testfragment.dummy.DummyContent;
-import com.example.seanshi.testfragment.dummy.DummyContent.DummyItem;
+import com.example.seanshi.testfragment.dummy.DummyItem;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.seanshi.testfragment.ItemFragment.OnListFragmentInteractionListener;
-import com.example.seanshi.testfragment.dummy.DummyContent.DummyItem;
+import com.example.seanshi.testfragment.dummy.DummyItem;
 
 import java.util.List;
 
