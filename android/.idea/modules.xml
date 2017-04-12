@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/testBarCode/testBarCode.iml" filepath="$PROJECT_DIR$/testBarCode/testBarCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/testEspresso/testEspresso.iml" filepath="$PROJECT_DIR$/testEspresso/testEspresso.iml" />
       <module fileurl="file://$PROJECT_DIR$/testbitmp/testbitmp.iml" filepath="$PROJECT_DIR$/testbitmp/testbitmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testespresso2/testespresso2.iml" filepath="$PROJECT_DIR$/testespresso2/testespresso2.iml" />
       <module fileurl="file://$PROJECT_DIR$/testfabric/testfabric.iml" filepath="$PROJECT_DIR$/testfabric/testfabric.iml" />
       <module fileurl="file://$PROJECT_DIR$/testfragment/testfragment.iml" filepath="$PROJECT_DIR$/testfragment/testfragment.iml" />
       <module fileurl="file://$PROJECT_DIR$/testgson/testgson.iml" filepath="$PROJECT_DIR$/testgson/testgson.iml" />

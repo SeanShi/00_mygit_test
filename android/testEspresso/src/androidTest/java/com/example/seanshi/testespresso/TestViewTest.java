@@ -1,7 +1,6 @@
 package com.example.seanshi.testespresso;
 
 import android.support.test.filters.SmallTest;
-import android.support.test.internal.runner.ClassPathScanner;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -57,12 +56,19 @@ public class TestViewTest {
     @Test
     public void testListView()
     {
-        onData(withItemContent("name1")).perform(click());
+        onView(withId(R.id.myListView)).perform(click());
         try{
             Thread.sleep(3000);
         }catch(Exception ex){
 
         }
-        onView(withId(R.id.editText)).check(matches(withText("1")));
+//        onData(withItemContent("name1")).perform(click());
+        onData(withItemContent("name3")).inAdapterView(withId(R.id.myListView)).perform(click());
+        try{
+            Thread.sleep(3000);
+        }catch(Exception ex){
+
+        }
+        onView(withId(R.id.editText)).check(matches(withText("3")));
     }
 }

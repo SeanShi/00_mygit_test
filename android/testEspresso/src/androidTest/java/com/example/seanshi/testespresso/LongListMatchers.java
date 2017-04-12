@@ -19,22 +19,22 @@ public final class LongListMatchers {
     public static Matcher<Object> withItemContent(final String expectedText) {
         // use preconditions to fail fast when a test is creating an invalid matcher.
         checkNotNull(expectedText);
-
+/*
         return new BoundedMatcher<Object, ProductDetails>(ProductDetails.class) {
             @Override
             public boolean matchesSafely(ProductDetails product) {
-                System.out.println("name ["+product._name);
+                System.out.println("..........................name ["+product._name);
                 return product._name.equals(expectedText);
             }
 
             @Override
             public void describeTo(Description description) {
                 description.appendText("with item content: ");
-//                itemTextMatcher.describeTo(description);
+                itemTextMatcher.describeTo(description);
             }
         };
-
-//        return withItemContent(equalTo(expectedText));
+*/
+        return withItemContent(equalTo(expectedText));
     }
     /**
      * Creates a matcher against the text stored in R.id.item_content. This text is roughly
@@ -43,16 +43,19 @@ public final class LongListMatchers {
     @SuppressWarnings("rawtypes")
     public static Matcher<Object> withItemContent(final Matcher<String> itemTextMatcher) {
         // use preconditions to fail fast when a test is creating an invalid matcher.
+        System.out.println("......................withItemContent: [ "+itemTextMatcher.toString()+"]");
         checkNotNull(itemTextMatcher);
         return new BoundedMatcher<Object, ProductDetails>(ProductDetails.class) {
             @Override
             public boolean matchesSafely(ProductDetails product) {
-                return hasEntry(equalTo("STR"), itemTextMatcher).matches(product);
+                System.out.println("...................... "+product._name);
+                return itemTextMatcher.matches(product._name);
             }
 
             @Override
             public void describeTo(Description description) {
-                description.appendText("with item content: ");
+                System.out.println("......................desc: [ "+itemTextMatcher.toString()+"]");
+                description.appendText("with item content: "+itemTextMatcher.toString());
                 itemTextMatcher.describeTo(description);
             }
         };
