@@ -16,14 +16,11 @@ import java.util.List;
  */
 
 public class ListViewAdapter extends ArrayAdapter<ProductDetails>{
-
-    private final List<ProductDetails> _products;
     private final int _layout;
 
     public ListViewAdapter(@NonNull Context context, @LayoutRes int resource, List<ProductDetails> products) {
-        super(context, resource);
+        super(context, resource, products);
         _layout = resource;
-        _products = products;
     }
 
     @Override
@@ -36,19 +33,9 @@ public class ListViewAdapter extends ArrayAdapter<ProductDetails>{
         }else{
             rowView = convertview;
         }
-        ((TextView)rowView.findViewById(R.id.productName)).setText(_products.get(position)._name);
-        ((TextView)rowView.findViewById(R.id.description)).setText(_products.get(position)._description);
+        ((TextView)rowView.findViewById(R.id.productName)).setText(getItem(position)._name);
+        ((TextView)rowView.findViewById(R.id.description)).setText(getItem(position)._description);
 
         return rowView;
-    }
-
-    @Override
-    public int getCount(){
-        return _products.size();
-    }
-
-    @Override
-    public ProductDetails getItem(int position){
-        return _products.get(position);
     }
 }
