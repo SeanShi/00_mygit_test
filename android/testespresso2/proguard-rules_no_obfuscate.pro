@@ -24,6 +24,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# -dontobfuscate
--keep, includedescriptorclasses class com.example.seanshi.testespresso2.** {*;}
+-dontobfuscate
+-dontwarn
+-keep, includedescriptorclasses class com.iqmetrix.pos.** {*;}
 -keepattributes *Annotation*

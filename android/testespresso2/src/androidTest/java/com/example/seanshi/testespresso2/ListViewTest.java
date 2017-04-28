@@ -22,7 +22,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(AndroidJUnit4.class)
 @SmallTest
-public class ListViewTest {
+public class ListViewTest extends TestBase{
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<MainActivity>(MainActivity.class);
 
@@ -30,8 +30,11 @@ public class ListViewTest {
     public void testListView()
     {
         // withItemContent() is a customized matcher
-        onData(withItemContent("name1")).inAdapterView(withId(R.id.myListView)).perform(click());
-        onView(withId(R.id.textView)).check(matches(withText("1")));
+        onData(withItemContent("name2")).inAdapterView(withId(R.id.myListView)).perform(click());
+        onView(withId(R.id.textView)).check(matches(withText("2")));
+        try{
+            Thread.sleep(10000);
+        }catch(Exception ex){}
     }
 
     public static Matcher<Object> withItemContent(final String expectedText) {

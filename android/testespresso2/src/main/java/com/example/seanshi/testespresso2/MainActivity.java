@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TextView textView = (TextView)findViewById(R.id.textView);
-        ListView listView = (ListView)findViewById(R.id.myListView);
+        final ListView listView = (ListView)findViewById(R.id.myListView);
 
         ArrayList<Person> items = new ArrayList();
         for(int i=0; i<10; i++){
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 textView.setText("" + position);
+                listView.setEnabled(false);
             }
         };
         listView.setOnItemClickListener(mMessageClickedHandler);
