@@ -7,9 +7,11 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/icontest/icontest.iml" filepath="$PROJECT_DIR$/icontest/icontest.iml" />
       <module fileurl="file://$PROJECT_DIR$/itext/itext.iml" filepath="$PROJECT_DIR$/itext/itext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testAndroid/testAndroid.iml" filepath="$PROJECT_DIR$/testAndroid/testAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/testBarCode/testBarCode.iml" filepath="$PROJECT_DIR$/testBarCode/testBarCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/testEspresso/testEspresso.iml" filepath="$PROJECT_DIR$/testEspresso/testEspresso.iml" />
       <module fileurl="file://$PROJECT_DIR$/testbitmp/testbitmp.iml" filepath="$PROJECT_DIR$/testbitmp/testbitmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testconstraintlayout/testconstraintlayout.iml" filepath="$PROJECT_DIR$/testconstraintlayout/testconstraintlayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/testespresso2/testespresso2.iml" filepath="$PROJECT_DIR$/testespresso2/testespresso2.iml" />
       <module fileurl="file://$PROJECT_DIR$/testfabric/testfabric.iml" filepath="$PROJECT_DIR$/testfabric/testfabric.iml" />
       <module fileurl="file://$PROJECT_DIR$/testfragment/testfragment.iml" filepath="$PROJECT_DIR$/testfragment/testfragment.iml" />

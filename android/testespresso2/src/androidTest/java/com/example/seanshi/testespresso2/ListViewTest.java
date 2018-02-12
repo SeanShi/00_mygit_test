@@ -23,8 +23,6 @@ import static org.hamcrest.Matchers.equalTo;
 @RunWith(AndroidJUnit4.class)
 @SmallTest
 public class ListViewTest extends TestBase{
-    @Rule
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<MainActivity>(MainActivity.class);
 
     @Test
     public void testListView()
@@ -35,6 +33,11 @@ public class ListViewTest extends TestBase{
         try{
             Thread.sleep(10000);
         }catch(Exception ex){}
+    }
+
+    @Test
+    public void test(){
+
     }
 
     public static Matcher<Object> withItemContent(final String expectedText) {

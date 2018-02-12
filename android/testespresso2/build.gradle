@@ -9,8 +9,8 @@ android {
             storePassword 'Abcd1234'
         }
     }
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.example.seanshi.testespresso2"
         minSdkVersion 17
