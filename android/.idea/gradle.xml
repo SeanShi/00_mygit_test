@@ -5,7 +5,6 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -28,6 +27,7 @@
             <option value="$PROJECT_DIR$/testproguard" />
             <option value="$PROJECT_DIR$/testrecyclerview" />
             <option value="$PROJECT_DIR$/teststorage" />
+            <option value="$PROJECT_DIR$/teststyle" />
             <option value="$PROJECT_DIR$/testsystemclock" />
             <option value="$PROJECT_DIR$/testwebview" />
             <option value="$PROJECT_DIR$/testzebraprinter" />

@@ -24,6 +24,7 @@ android {
 
     }
 
+/*
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             output.outputFile = new File(
@@ -31,6 +32,7 @@ android {
                     output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
         }
     }
+*/
 
 }
 

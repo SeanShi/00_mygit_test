@@ -2,9 +2,9 @@ package com.example.seanshi.testfabric;
 
 import android.bluetooth.BluetoothAdapter;
 import android.os.Build;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,20 +14,53 @@ import com.crashlytics.android.answers.CustomEvent;
 import com.crashlytics.android.answers.LoginEvent;
 import com.crashlytics.android.answers.PurchaseEvent;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+import java.io.File;
 import java.math.BigDecimal;
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
 
+import de.mindpipe.android.logging.log4j.LogConfigurator;
 import io.fabric.sdk.android.Fabric;
-import io.fabric.sdk.android.services.common.Crash;
 
 public class MainActivity extends AppCompatActivity {
 
     String _time;
     Calendar _c;
     TextView _text;
+
+    private Logger logger = Logger.getLogger(this.getClass());
+
+    static {
+        final LogConfigurator logConfigurator = new LogConfigurator();
+
+        File root = Environment.getExternalStorageDirectory();
+        System.out.println(".........["+root+"]");
+
+        // We need to enable "storage" permission on tablet with Android 23+
+        // settings-->apps-->select app-->permission-->enable "storage"
+        String FileName = root.getAbsolutePath() + "/testFabric.log";
+
+        logConfigurator.setFileName(FileName);
+        logConfigurator.setRootLevel(Level.DEBUG);
+
+        // Set log level of a specific logger
+        logConfigurator.setLevel("com.iqmetrix.pos", Level.DEBUG);
+        logConfigurator.setFilePattern("%d{dd MMM yyyy HH:mm:ss,SSS} -- [%t] %c %x %M - %m (ln:%L)%n");
+
+        // Be careful to change these two parameters (5 and 2M). We send all 6 log files in a screenshot email. The attachment limit is around 3.3M.
+        // A zipped file contains 6 logs is around 2.3M.
+        logConfigurator.setMaxBackupSize(5);
+        logConfigurator.setMaxFileSize(2 * 1024 * 1024);
+
+        logConfigurator.configure();
+
+        Logger loggerRoot = Logger.getRootLogger();
+        loggerRoot.addAppender(new CrashlyticsAppender());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +77,27 @@ public class MainActivity extends AppCompatActivity {
         // TODO: Move this to where you establish a user session
         logUser();
 
+        logger.info("this is log4j info");
+        logger.warn("this is log4j warning");
+        logger.error("this is log4j error in crashlytic but not on logcat");
+
+/*
         Crashlytics.log(Log.ERROR, "tag", "..................this is Error (int, tag, str)");
         Crashlytics.log(Log.WARN, "tag1", "..................this is Warn (int, tag, str)");
         Crashlytics.log(".................this is (str)");
+        Crashlytics.log(Log.WARN, "tag2", "..................this is Warn2 (int, tag, str)");
+*/
 
-        Crashlytics.setInt("current_level", 3);
+        Crashlytics.setInt("current_level", 6);
         Crashlytics.setString("last_UI_action", "logged_in");
 
-        testException();
+        try{
+            throw new Exception("test");
+        }catch(Exception ex){
+            logger.error("get an exception", ex);
+        }
+
+//        testException();
 
         _text.setText("MODEL: "+android.os.Build.MODEL
                 +"\nDEVICE: "+android.os.Build.DEVICE
@@ -120,14 +166,19 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("............ customer event");
 
         Answers.getInstance().logCustom(new CustomEvent("Custom Event").putCustomAttribute("custom key", _time));
+
+        for(int i=0;i<1000;i++){
+            logger.error("..................................................................................................................this is log4j error in crashlytic but not on logcat "+i);
+        }
+
     }
 
     private void logUser() {
         // TODO: Use the current user's information
         // You can call any combination of these three methods
         Crashlytics.setUserIdentifier("12345");
-        Crashlytics.setUserEmail("seans@iqmetrix.com");
-        Crashlytics.setUserName("Test User");
+        Crashlytics.setUserEmail("seans1@iqmetrix.com");
+        Crashlytics.setUserName("Test User1");
     }
 
     private void testException()

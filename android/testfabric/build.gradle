@@ -16,8 +16,8 @@ repositories {
 
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.example.seanshi.testfabric"
@@ -41,4 +41,6 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }
+    compile group: 'de.mindpipe.android', name: 'android-logging-log4j', version: '1.0.3'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
 }

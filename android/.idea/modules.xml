@@ -22,6 +22,7 @@
       <module fileurl="file://$PROJECT_DIR$/testproguard/testproguard.iml" filepath="$PROJECT_DIR$/testproguard/testproguard.iml" />
       <module fileurl="file://$PROJECT_DIR$/testrecyclerview/testrecyclerview.iml" filepath="$PROJECT_DIR$/testrecyclerview/testrecyclerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/teststorage/teststorage.iml" filepath="$PROJECT_DIR$/teststorage/teststorage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teststyle/teststyle.iml" filepath="$PROJECT_DIR$/teststyle/teststyle.iml" />
       <module fileurl="file://$PROJECT_DIR$/testsystemclock/testsystemclock.iml" filepath="$PROJECT_DIR$/testsystemclock/testsystemclock.iml" />
       <module fileurl="file://$PROJECT_DIR$/testwebview/testwebview.iml" filepath="$PROJECT_DIR$/testwebview/testwebview.iml" />
       <module fileurl="file://$PROJECT_DIR$/testzebraprinter/testzebraprinter.iml" filepath="$PROJECT_DIR$/testzebraprinter/testzebraprinter.iml" />
