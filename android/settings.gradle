@@ -1,1 +1,3 @@
+include ':testcamera'
 include ':app', ':itext', ':InstantRun', ':testwebview', ':testBarCode', ':icontest', ':testfragment', ':teststorage', ':testfabric', ':testlayout', ':testproguard', ':testrecyclerview', ':testgson', ':testndk', ':testzebraprinter', ':testbitmp', ':testsystemclock', ':testsystemclock', ':testEspresso', ':testlooperandhandler', ':testespresso2', ':testconstraintlayout', ':testAndroid', ':teststyle'
+include ':testmemory'

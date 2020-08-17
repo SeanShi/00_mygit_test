@@ -2,30 +2,32 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InstantRun/InstantRun.iml" filepath="$PROJECT_DIR$/InstantRun/InstantRun.iml" />
       <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/icontest/icontest.iml" filepath="$PROJECT_DIR$/icontest/icontest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/itext/itext.iml" filepath="$PROJECT_DIR$/itext/itext.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testAndroid/testAndroid.iml" filepath="$PROJECT_DIR$/testAndroid/testAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testBarCode/testBarCode.iml" filepath="$PROJECT_DIR$/testBarCode/testBarCode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testEspresso/testEspresso.iml" filepath="$PROJECT_DIR$/testEspresso/testEspresso.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testbitmp/testbitmp.iml" filepath="$PROJECT_DIR$/testbitmp/testbitmp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testconstraintlayout/testconstraintlayout.iml" filepath="$PROJECT_DIR$/testconstraintlayout/testconstraintlayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testespresso2/testespresso2.iml" filepath="$PROJECT_DIR$/testespresso2/testespresso2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testfabric/testfabric.iml" filepath="$PROJECT_DIR$/testfabric/testfabric.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testfragment/testfragment.iml" filepath="$PROJECT_DIR$/testfragment/testfragment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testgson/testgson.iml" filepath="$PROJECT_DIR$/testgson/testgson.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testlayout/testlayout.iml" filepath="$PROJECT_DIR$/testlayout/testlayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testlooperandhandler/testlooperandhandler.iml" filepath="$PROJECT_DIR$/testlooperandhandler/testlooperandhandler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testndk/testndk.iml" filepath="$PROJECT_DIR$/testndk/testndk.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testproguard/testproguard.iml" filepath="$PROJECT_DIR$/testproguard/testproguard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testrecyclerview/testrecyclerview.iml" filepath="$PROJECT_DIR$/testrecyclerview/testrecyclerview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/teststorage/teststorage.iml" filepath="$PROJECT_DIR$/teststorage/teststorage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/teststyle/teststyle.iml" filepath="$PROJECT_DIR$/teststyle/teststyle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testsystemclock/testsystemclock.iml" filepath="$PROJECT_DIR$/testsystemclock/testsystemclock.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testwebview/testwebview.iml" filepath="$PROJECT_DIR$/testwebview/testwebview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testzebraprinter/testzebraprinter.iml" filepath="$PROJECT_DIR$/testzebraprinter/testzebraprinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/InstantRun/android.InstantRun.iml" filepath="$PROJECT_DIR$/.idea/modules/InstantRun/android.InstantRun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/icontest/android.icontest.iml" filepath="$PROJECT_DIR$/.idea/modules/icontest/android.icontest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/itext/android.itext.iml" filepath="$PROJECT_DIR$/.idea/modules/itext/android.itext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testAndroid/android.testAndroid.iml" filepath="$PROJECT_DIR$/.idea/modules/testAndroid/android.testAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testBarCode/android.testBarCode.iml" filepath="$PROJECT_DIR$/.idea/modules/testBarCode/android.testBarCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testEspresso/android.testEspresso.iml" filepath="$PROJECT_DIR$/.idea/modules/testEspresso/android.testEspresso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testbitmp/android.testbitmp.iml" filepath="$PROJECT_DIR$/.idea/modules/testbitmp/android.testbitmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testcamera/android.testcamera.iml" filepath="$PROJECT_DIR$/.idea/modules/testcamera/android.testcamera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testconstraintlayout/android.testconstraintlayout.iml" filepath="$PROJECT_DIR$/.idea/modules/testconstraintlayout/android.testconstraintlayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testespresso2/android.testespresso2.iml" filepath="$PROJECT_DIR$/.idea/modules/testespresso2/android.testespresso2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testfabric/android.testfabric.iml" filepath="$PROJECT_DIR$/.idea/modules/testfabric/android.testfabric.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testfragment/android.testfragment.iml" filepath="$PROJECT_DIR$/.idea/modules/testfragment/android.testfragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testgson/android.testgson.iml" filepath="$PROJECT_DIR$/.idea/modules/testgson/android.testgson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testlayout/android.testlayout.iml" filepath="$PROJECT_DIR$/.idea/modules/testlayout/android.testlayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testlooperandhandler/android.testlooperandhandler.iml" filepath="$PROJECT_DIR$/.idea/modules/testlooperandhandler/android.testlooperandhandler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testmemory/android.testmemory.iml" filepath="$PROJECT_DIR$/.idea/modules/testmemory/android.testmemory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testndk/android.testndk.iml" filepath="$PROJECT_DIR$/.idea/modules/testndk/android.testndk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testproguard/android.testproguard.iml" filepath="$PROJECT_DIR$/.idea/modules/testproguard/android.testproguard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testrecyclerview/android.testrecyclerview.iml" filepath="$PROJECT_DIR$/.idea/modules/testrecyclerview/android.testrecyclerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/teststorage/android.teststorage.iml" filepath="$PROJECT_DIR$/.idea/modules/teststorage/android.teststorage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/teststyle/android.teststyle.iml" filepath="$PROJECT_DIR$/.idea/modules/teststyle/android.teststyle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testsystemclock/android.testsystemclock.iml" filepath="$PROJECT_DIR$/.idea/modules/testsystemclock/android.testsystemclock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testwebview/android.testwebview.iml" filepath="$PROJECT_DIR$/.idea/modules/testwebview/android.testwebview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testzebraprinter/android.testzebraprinter.iml" filepath="$PROJECT_DIR$/.idea/modules/testzebraprinter/android.testzebraprinter.iml" />
     </modules>
   </component>
 </project>

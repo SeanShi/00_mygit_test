@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -16,6 +19,7 @@
             <option value="$PROJECT_DIR$/testBarCode" />
             <option value="$PROJECT_DIR$/testEspresso" />
             <option value="$PROJECT_DIR$/testbitmp" />
+            <option value="$PROJECT_DIR$/testcamera" />
             <option value="$PROJECT_DIR$/testconstraintlayout" />
             <option value="$PROJECT_DIR$/testespresso2" />
             <option value="$PROJECT_DIR$/testfabric" />
@@ -23,6 +27,7 @@
             <option value="$PROJECT_DIR$/testgson" />
             <option value="$PROJECT_DIR$/testlayout" />
             <option value="$PROJECT_DIR$/testlooperandhandler" />
+            <option value="$PROJECT_DIR$/testmemory" />
             <option value="$PROJECT_DIR$/testndk" />
             <option value="$PROJECT_DIR$/testproguard" />
             <option value="$PROJECT_DIR$/testrecyclerview" />
@@ -34,6 +39,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
